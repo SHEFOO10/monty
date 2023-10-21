@@ -74,6 +74,7 @@ int valitdate_value(char *value, int line_number, int *result)
  * @op_code: operation code.
  * @value: value.
  * @line_number: line number.
+ * @mode: pointer to mode.
  *
  * Return: (void).
  */
