@@ -29,10 +29,13 @@ void print_all(stack_t **stack, unsigned int line_number)
 
 void print_int(stack_t **stack, unsigned int line_number)
 {
-	if (stack == NULL && *stack == NULL)
+	(void)stack;
+
+	if (*stack == NULL)
 	{
 		error(6, line_number);
 	}
-	printf("%d\n", (*stack)->n);
+	else
+		printf("%d\n", (*stack)->n);
 }
 

@@ -109,5 +109,9 @@ void call_func(
 			*mode = 3;
 	}
 	else
+	{
+		if (head == NULL)
+			*mode = 3;
 		func(&head, line_number);
+	}
 }
