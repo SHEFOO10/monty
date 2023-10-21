@@ -26,12 +26,12 @@ void error(int error_code, ...)
 			break;
 		case 4:
 			line_number = va_arg(list, int);
-			fprintf(stderr, "L<%d>: unknown instruction %s\n",
+			fprintf(stderr, "L%d: unknown instruction %s\n",
 				line_number,
 				va_arg(list, char *));
 			break;
 		case 5:
-			fprintf(stderr, "L<%d>: usage: push integer\n", va_arg(list, int));
+			fprintf(stderr, "L%d: usage: push integer\n", va_arg(list, int));
 			break;
 	}
 	va_end(list);
