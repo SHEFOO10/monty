@@ -1,9 +1,16 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define  _GNU_SOURCE
+
 #include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <stdarg.h>
+
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -35,12 +42,26 @@ typedef struct instruction_s
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *head;
+extern stack_t *head; 
 typedef void (*operation_func)(stack_t **, unsigned int);
 
 /* file functions */
 void openfile(char *filename);
 void readfile(FILE *fd);
 int parse_line(char *buffer, int line_number, int mode);
+stack_t *create_node(int n);
+
+/* stack functions */
+void add_to_stack(stack_t **new_node, __attribute__((unused))unsigned int test);
+void print_all(stack_t **stack, unsigned int line_number);
+
+/* helper functions */
+void (*select_operation_func(char *op_code, int line_number))(stack_t **, unsigned int);
+int valitdate_value(char *value, int line_number, int *result);
+void call_func(operation_func func, char *op_code, char *value, int line_number);
+void free_nodes(void);
+
+/* error function */
+void error(int error_code, ...);
 
 #endif

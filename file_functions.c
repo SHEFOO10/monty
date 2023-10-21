@@ -14,13 +14,13 @@ void openfile(char *filename)
 
 	if (filename == NULL || fd == NULL)
 	{
-		fprintf(stderr, "This is an error message printed to stderr\n");
+		error(2, filename);
+		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		readfile(fd);
-		fclose(fd);
-	}
+	
+	readfile(fd);
+	fclose(fd);
+
 }
 
 /**
@@ -37,12 +37,14 @@ void readfile(FILE *fd)
 	char *buffer = NULL;
 	size_t len = 0;
 
-	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
+	for (line_number = 1; (ssize_t)getline(&buffer, &len, fd) != -1; line_number++)
 	{
 		mode = parse_line(buffer, line_number, mode);
 	}
 	free(buffer);
+	free_nodes();
 }
+
 
 /**
  * parse_line - extract op_code and value from the line.
@@ -56,16 +58,24 @@ void readfile(FILE *fd)
 
 int parse_line(char *buffer, int line_number, int mode)
 {
-	char *operation_code, *value;
+	char *operation_code, *value, *token;
 	const char *delimiter = "\n ";
-
-	if (buffer == NULL)
-		fprintf(stderr, "buffer is NULL");
+	operation_func func;
 
 	operation_code = strtok(buffer, delimiter);
 	if (operation_code == NULL)
 		return (mode);
 	value = strtok(NULL, delimiter);
-	printf("opcode: %s, value: %s\n", operation_code, value);
+
+	while ((token = strtok(NULL, delimiter)))
+	{
+		if (strcmp(token, "stack") == 0)
+			mode = 0;
+		if (strcmp(token, "queue") == 0)
+			mode = 1;
+		token = strtok(NULL, delimiter);
+	}
+	func = select_operation_func(operation_code, line_number);
+	call_func(func, operation_code, value, line_number);
 	return (mode);
 }
