@@ -20,6 +20,13 @@ void print_all(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+ * print_int - print top of the stack.
+ *
+ * @stack: the stack.
+ * @line_number: line number.
+ */
+
 void print_int(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL && *stack == NULL)
@@ -28,3 +35,4 @@ void print_int(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
