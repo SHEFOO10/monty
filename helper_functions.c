@@ -110,7 +110,7 @@ void call_func(
 	}
 	else
 	{
-		if (head == NULL)
+		if (head == NULL && strcmp(op_code, "pint") == 0)
 			*mode = 3;
 		func(&head, line_number);
 	}
