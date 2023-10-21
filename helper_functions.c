@@ -16,6 +16,7 @@ void (*select_operation_func(char *op_code, int ln))(stack_t **, unsigned int)
 	instruction_t func_list[] = {
 		{"push", add_to_stack},
 		{"pall", print_all},
+		{"pint", print_int},
 		{NULL, NULL},
 	};
 
