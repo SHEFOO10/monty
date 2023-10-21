@@ -1,4 +1,5 @@
-push 1
-push #
-push 3
-pall hellowwrold
+push  1
+           push 2
+         push 3
+         test
+pall     hello world

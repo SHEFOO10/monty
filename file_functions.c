@@ -8,9 +8,10 @@
  * Return: nothing.
  */
 
-void openfile(char *filename)
+int openfile(char *filename)
 {
 	FILE *fd = fopen(filename, "r");
+	int mode = 0;
 
 	if (filename == NULL || fd == NULL)
 	{
@@ -18,9 +19,9 @@ void openfile(char *filename)
 		exit(EXIT_FAILURE);
 	}
 
-	readfile(fd);
+	mode = readfile(fd);
 	fclose(fd);
-
+	return (mode);
 }
 
 /**
@@ -28,10 +29,10 @@ void openfile(char *filename)
  *
  * @fd: pointer to file descriptor.
  *
- * Return: void.
+ * Return: (1) success read, (0) unsuccess read.
  */
 
-void readfile(FILE *fd)
+int readfile(FILE *fd)
 {
 	int line_number, mode = 0;
 	char *buffer = NULL;
@@ -45,6 +46,7 @@ void readfile(FILE *fd)
 	}
 	free(buffer);
 	free_nodes();
+	return (mode);
 }
 
 

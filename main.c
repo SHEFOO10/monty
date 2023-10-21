@@ -16,7 +16,8 @@ int main(int argc, char *argv[])
 		error(1);
 		exit(EXIT_FAILURE);
 	}
-	openfile(argv[1]);
+	if (openfile(argv[1]) == 3)
+		return (1);
 	return (0);
 }
 

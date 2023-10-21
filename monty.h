@@ -46,8 +46,8 @@ extern stack_t *head;
 typedef void (*operation_func)(stack_t **, unsigned int);
 
 /* file functions */
-void openfile(char *filename);
-void readfile(FILE *fd);
+int openfile(char *filename);
+int readfile(FILE *fd);
 int parse_line(char *buffer, int line_number, int mode);
 stack_t *create_node(int n);
 
