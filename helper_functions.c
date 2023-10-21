@@ -52,25 +52,25 @@ int valitdate_value(char *value, int line_number, int *result)
 	int i, flag = 1;
 
 	if (value != NULL && value[0] == '-')
-		{
-			value = value + 1;
-			flag = -1;
-		}
-		if (value == NULL)
+	{
+		value = value + 1;
+		flag = -1;
+	}
+	if (value == NULL)
+	{
+		error(5, line_number);
+		return (0);
+	}
+	for (i = 0; value[i] != '\0'; i++)
+	{
+		if (isdigit(value[i]) == 0)
 		{
 			error(5, line_number);
 			return (0);
 		}
-		for (i = 0; value[i] != '\0'; i++)
-		{
-			if (isdigit(value[i]) == 0)
-			{
-				error(5, line_number);
-				return (0);
-			}
-		}
-		*result = atoi(value) * flag;
-		return (1);
+	}
+	*result = atoi(value) * flag;
+	return (1);
 }
 
 /**
