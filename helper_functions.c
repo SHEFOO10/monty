@@ -82,7 +82,8 @@ void call_func(
 	operation_func func,
 	char *op_code,
 	char *value,
-	int line_number
+	int line_number,
+	int *mode
 	)
 {
 	int result, status;
@@ -96,6 +97,8 @@ void call_func(
 			new_node = create_node(result);
 			func(&new_node, line_number);
 		}
+		else
+			*mode = 3;
 	}
 	else
 		func(&head, line_number);

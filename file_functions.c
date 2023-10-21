@@ -79,7 +79,7 @@ int parse_line(char *buffer, int line_number, int mode)
 	}
 	func = select_operation_func(operation_code, line_number);
 	if (func != NULL)
-		call_func(func, operation_code, value, line_number);
+		call_func(func, operation_code, value, line_number, &mode);
 	else
 		mode = 3;
 	return (mode);

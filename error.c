@@ -33,6 +33,8 @@ void error(int error_code, ...)
 		case 5:
 			fprintf(stderr, "L%d: usage: push integer\n", va_arg(list, int));
 			break;
+		default:
+			break;
 	}
 	va_end(list);
 }
