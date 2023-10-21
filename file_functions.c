@@ -17,7 +17,7 @@ void openfile(char *filename)
 		error(2, filename);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	readfile(fd);
 	fclose(fd);
 
@@ -37,7 +37,7 @@ void readfile(FILE *fd)
 	char *buffer = NULL;
 	size_t len = 0;
 
-	for (line_number = 1; (ssize_t)getline(&buffer, &len, fd) != -1; line_number++)
+	for (line_number = 1; (int) getline(&buffer, &len, fd) != -1; line_number++)
 	{
 		mode = parse_line(buffer, line_number, mode);
 	}

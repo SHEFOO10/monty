@@ -1,8 +1,17 @@
 #include "monty.h"
 
-void print_all(stack_t **stack, __attribute__((unused))unsigned int line_number)
+/**
+ * print_all - print all values in the stack.
+ *
+ * @stack: double pointer to the stack.
+ * @line_number: line number.
+ *
+ */
+void print_all(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
+
+	(void)line_number;
 	tmp = *stack;
 	while (tmp != NULL)
 	{
@@ -10,4 +19,3 @@ void print_all(stack_t **stack, __attribute__((unused))unsigned int line_number)
 		tmp = tmp->next;
 	}
 }
-

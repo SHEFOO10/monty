@@ -4,11 +4,12 @@
  * select_operation_func - select the operation to use it in stack.
  *
  * @op_code: operation code.
+ * @ln: line number.
  *
  * Return: function pointer for the selected function.
  */
 
-void (*select_operation_func(char *op_code, int line_number))(stack_t **, unsigned int)
+void (*select_operation_func(char *op_code, int ln))(stack_t **, unsigned int)
 {
 	int i, flag = 0;
 
@@ -19,20 +20,20 @@ void (*select_operation_func(char *op_code, int line_number))(stack_t **, unsign
 	};
 
 	if (op_code[0] == '#')
-		return NULL;
+		return (NULL);
 
 	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
 		if (strcmp(op_code, func_list[i].opcode) == 0)
 		{
 			flag = 0;
-			return func_list[i].f; 
+			return (func_list[i].f);
 		}
 	}
-	 
 
-	 if (flag == 1)
-	 	error(4, line_number, op_code);
+
+	if (flag == 1)
+		error(4, ln, op_code);
 	return (NULL);
 }
 
@@ -77,7 +78,12 @@ int valitdate_value(char *value, int line_number, int *result)
  * Return: (void).
  */
 
-void call_func(operation_func func, char *op_code, char *value, int line_number)
+void call_func(
+	operation_func func,
+	char *op_code,
+	char *value,
+	int line_number
+	)
 {
 	int result, status;
 	stack_t *new_node;

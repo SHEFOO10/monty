@@ -1,12 +1,19 @@
 #include "monty.h"
 
+/**
+ * error - to print errors.
+ *
+ * @error_code: error code.
+ *
+ * Return: Void.
+ */
 void error(int error_code, ...)
 {
 	va_list list;
 	int line_number;
 
 	va_start(list, error_code);
-	switch(error_code)
+	switch (error_code)
 	{
 		case 1:
 			fprintf(stderr, "USAGE: monty file\n");
@@ -19,7 +26,9 @@ void error(int error_code, ...)
 			break;
 		case 4:
 			line_number = va_arg(list, int);
-			fprintf(stderr, "L<%d>: unknown instruction %s\n", line_number, va_arg(list, char *));
+			fprintf(stderr, "L<%d>: unknown instruction %s\n",
+				line_number,
+				va_arg(list, char *));
 			break;
 		case 5:
 			fprintf(stderr, "L<%d>: usage: push integer\n", va_arg(list, int));

@@ -39,9 +39,13 @@ stack_t *create_node(int n)
 	return (node);
 }
 
+/**
+ * free_nodes - free stack nodes.
+ */
 void free_nodes(void)
 {
 	stack_t *tmp = head;
+
 	while (tmp)
 	{
 		tmp = head->next;
