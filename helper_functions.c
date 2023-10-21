@@ -49,22 +49,28 @@ void (*select_operation_func(char *op_code, int ln))(stack_t **, unsigned int)
 
 int valitdate_value(char *value, int line_number, int *result)
 {
-	if (value != NULL)
-	{
-		if (isdigit(value[0]) == 0 && value[0] == '-')
+	int i, flag = 1;
+
+	if (value != NULL && value[0] == '-')
 		{
 			value = value + 1;
-			*result = -(atoi(value));
-			return (1);
+			flag = -1;
 		}
-		else if (isdigit(value[0]))
+		if (value == NULL)
 		{
-			*result = atoi(value);
-			return (1);
+			error(5, line_number);
+			return (0);
 		}
-	}
-	error(5, line_number);
-	return (0);
+		for (i = 0; value[i] != '\0'; i++)
+		{
+			if (isdigit(value[i]) == 0)
+			{
+				error(5, line_number);
+				return (0);
+			}
+		}
+		*result = atoi(value) * flag;
+		return (1);
 }
 
 /**
