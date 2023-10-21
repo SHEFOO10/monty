@@ -76,6 +76,7 @@ int parse_line(char *buffer, int line_number, int mode)
 		token = strtok(NULL, delimiter);
 	}
 	func = select_operation_func(operation_code, line_number);
-	call_func(func, operation_code, value, line_number);
+	if (func != NULL)
+		call_func(func, operation_code, value, line_number);
 	return (mode);
 }
