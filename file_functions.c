@@ -40,6 +40,8 @@ void readfile(FILE *fd)
 	for (line_number = 1; (int) getline(&buffer, &len, fd) != -1; line_number++)
 	{
 		mode = parse_line(buffer, line_number, mode);
+		if (mode == 3)
+			break;
 	}
 	free(buffer);
 	free_nodes();
@@ -78,5 +80,7 @@ int parse_line(char *buffer, int line_number, int mode)
 	func = select_operation_func(operation_code, line_number);
 	if (func != NULL)
 		call_func(func, operation_code, value, line_number);
+	else
+		mode = 3;
 	return (mode);
 }

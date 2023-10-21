@@ -29,9 +29,7 @@ void error(int error_code, ...)
 			fprintf(stderr, "L<%d>: unknown instruction %s\n",
 				line_number,
 				va_arg(list, char *));
-			if (head != NULL)
-				free_nodes();
-			exit(EXIT_FAILURE);
+			break;
 		case 5:
 			fprintf(stderr, "L<%d>: usage: push integer\n", va_arg(list, int));
 			break;
