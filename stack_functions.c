@@ -88,7 +88,7 @@ void add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
 
-	if (*stack == NULL && (*stack)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		error(9, line_number);
 		return;
