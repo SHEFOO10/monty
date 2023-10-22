@@ -19,6 +19,7 @@ void (*select_operation_func(char *op_code, int ln))(stack_t **, unsigned int)
 		{"pint", print_int},
 		{"pop", pop},
 		{"swap", swap},
+		{"nop", print_all},
 		{NULL, NULL},
 	};
 
