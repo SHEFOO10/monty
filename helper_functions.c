@@ -114,7 +114,8 @@ void call_func(
 	else
 	{
 		if (
-			(head == NULL && strcmp(op_code, "pall") != 0)
+			((head == NULL && strcmp(op_code, "pall") != 0)
+			&& strcmp(op_code, "nop") != 0)
 			|| (strcmp(op_code, "swap") == 0 && head->next == NULL))
 			*mode = 3;
 		func(&head, line_number);
