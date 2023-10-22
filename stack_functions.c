@@ -56,3 +56,23 @@ void pop(stack_t **stack, unsigned int line_number)
 		free(tmp);
 	}
 }
+
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current;
+	stack_t *next;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		error(8, line_number);
+		return;
+	}
+	current = *stack;
+	next = current->next;
+
+	next->prev = current->prev;
+	current->next = next->next;
+	next->next = current;
+	
+	*stack = next;
+}

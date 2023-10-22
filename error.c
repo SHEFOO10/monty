@@ -38,6 +38,10 @@ void error(int error_code, ...)
 			break;
 		case 7:
 			fprintf(stderr, "L%d: can't pop an empty stack\n", va_arg(list, int));
+			break;
+		case 8:
+			fprintf(stderr, "L%d: can't swap, stack too short\n", va_arg(list, int));
+			break;
 		default:
 			break;
 	}
