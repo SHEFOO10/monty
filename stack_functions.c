@@ -29,13 +29,30 @@ void print_all(stack_t **stack, unsigned int line_number)
 
 void print_int(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
 
 	if (*stack == NULL)
-	{
 		error(6, line_number);
-	}
 	else
 		printf("%d\n", (*stack)->n);
 }
 
+/**
+ * pop - pop the item from the top of stack.
+ *
+ * @stack: stack pointer.
+ * @line_number: line number that called this funciton.
+ */
+
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	if (*stack == NULL)
+		error(7, line_number);
+	else
+	{
+		tmp = *stack;
+		*stack = tmp->next;
+		free(tmp);
+	}
+}
