@@ -57,6 +57,13 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 }
 
+
+/**
+ * swap - swap the top node with the next.
+ *
+ * @stack: the stack.
+ * @line_number: line number.
+ */
 void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current;
@@ -73,6 +80,6 @@ void swap(stack_t **stack, unsigned int line_number)
 	next->prev = current->prev;
 	current->next = next->next;
 	next->next = current;
-	
+
 	*stack = next;
 }
