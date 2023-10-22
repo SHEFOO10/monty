@@ -1,5 +1,4 @@
-push 3
-pall
-nop
-swap
-pall
+ push 98
+ push 402
+ nop Holberton
+ pall
