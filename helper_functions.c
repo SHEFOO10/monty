@@ -20,6 +20,7 @@ void (*select_operation_func(char *op_code, int ln))(stack_t **, unsigned int)
 		{"pop", pop},
 		{"swap", swap},
 		{"nop", nop},
+		{"add", add},
 		{NULL, NULL},
 	};
 
@@ -116,7 +117,7 @@ void call_func(
 		if (
 			((head == NULL && strcmp(op_code, "pall") != 0)
 			&& strcmp(op_code, "nop") != 0)
-			|| (strcmp(op_code, "swap") == 0 && head->next == NULL))
+			|| ((strcmp(op_code, "swap") == 0 || strcmp(op_code, "add") == 0) && head->next == NULL))
 			*mode = 3;
 		func(&head, line_number);
 	}

@@ -36,26 +36,7 @@ void print_int(stack_t **stack, unsigned int line_number)
 		printf("%d\n", (*stack)->n);
 }
 
-/**
- * pop - pop the item from the top of stack.
- *
- * @stack: stack pointer.
- * @line_number: line number that called this funciton.
- */
 
-void pop(stack_t **stack, unsigned int line_number)
-{
-	stack_t *tmp;
-
-	if (*stack == NULL)
-		error(7, line_number);
-	else
-	{
-		tmp = *stack;
-		*stack = tmp->next;
-		free(tmp);
-	}
-}
 
 
 /**
@@ -95,4 +76,25 @@ void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
+}
+
+/**
+ * add - add n of top stack node to n of next node to it.
+ *
+ * @stack: the stack.
+ * @line_number: line number.
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+
+	if (*stack == NULL && (*stack)->next == NULL)
+	{
+		error(9, line_number);
+		return;
+	}
+	tmp->next->n += tmp->n;
+
+	*stack = tmp->next;
+	free(tmp);
 }

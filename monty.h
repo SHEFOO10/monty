@@ -58,6 +58,7 @@ void print_int(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 
 /* helper functions */
 void (*select_operation_func(char *op_code, int line_number))(stack_t **, unsigned int);

@@ -22,3 +22,24 @@ void add_to_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
 	head->next = tmp;
 	tmp->prev = head;
 }
+
+/**
+ * pop - pop the item from the top of stack.
+ *
+ * @stack: stack pointer.
+ * @line_number: line number that called this funciton.
+ */
+
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	if (*stack == NULL)
+		error(7, line_number);
+	else
+	{
+		tmp = *stack;
+		*stack = tmp->next;
+		free(tmp);
+	}
+}
