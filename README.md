@@ -10,10 +10,10 @@
 
 * [Overview](#-overview)
 * [Learning Objectives](#-learning-objectives)
-* [Getting Started](#-getting-started)
+* [Getting Started](#%EF%B8%8F-getting-started)
 * [Monty Bytecode Language](#-monty-bytecode-language)
 * [Implemented Opcodes](#-implemented-opcodes)
-* [Usage](#-usage)
+* [Usage](#%EF%B8%8F-usage)
 * [Tech Specs](#-tech-specs)
 * [Contributing](#-contributing)
 * [License](#-license)
