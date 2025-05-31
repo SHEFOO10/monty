@@ -8,15 +8,15 @@
 
 ## 📚 Table of Contents
 
-* [Overview](#overview)
-* [Learning Objectives](#learning-objectives)
-* [Getting Started](#getting-started)
-* [Monty Bytecode Language](#monty-bytecode-language)
-* [Implemented Opcodes](#implemented-opcodes)
-* [Usage](#usage)
-* [Tech Specs](#tech-specs)
-* [Contributing](#contributing)
-* [License](#license)
+* [Overview](#-overview)
+* [Learning Objectives](#-learning-objectives)
+* [Getting Started](#-getting-started)
+* [Monty Bytecode Language](#-monty-bytecode-language)
+* [Implemented Opcodes](#-implemented-opcodes)
+* [Usage](#-usage)
+* [Tech Specs](#-tech-specs)
+* [Contributing](#-contributing)
+* [License](#-license)
 
 ---
 
